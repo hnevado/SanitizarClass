@@ -36,5 +36,47 @@ class SanitizarTest extends TestCase {
 
     
 
+    public function testListaNegra() {
+
+        $sanitizar = new Sanitizar();
+
+        $this->assertEquals('  id',$sanitizar->listaNegra("GROUP BY id"));
+
+    }
+
+
+    public static function posiblesEnteros():array 
+    {
+
+        return [
+            [false,-5,true],
+            [-5, -5, false],
+            [5, 5, true]
+        ];
+    }
+
+    /**
+     * @dataProvider posiblesEnteros
+     */
+    
+     public function testLimpiarEntero($resultadoEsperado, $entero, $soloPositivo)
+     {
+
+        $sanitizar = new Sanitizar();
+
+        $this->assertEquals($resultadoEsperado,$sanitizar->limpiarEntero($entero,$soloPositivo));
+
+     }
+
+     public function testComprobarExtension()
+     {
+
+        $sanitizar = new Sanitizar();
+
+        $this->assertEquals(true,$sanitizar->comprobarExtension("test_image.jpg", "jpg, jpeg, png"));
+
+     }
+
+
 }
 ?>
