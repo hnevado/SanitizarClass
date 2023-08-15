@@ -3,8 +3,9 @@
  * Ejecuta php examples.php en el terminal para ver los ejemplos o abre un navegador web 
 */
 
-require ('Sanitizar.php');
+require ('src/Sanitizar.php');
 
+use App\Sanitizar;
 $sanitizar = new Sanitizar();
 
 
@@ -84,7 +85,7 @@ echo "----- Función limpiarEntero() -------- \n\n";
 
      echo "Paso otro entero negativo con onlyPositive a false (valor por defecto)\n";
 
-     echo $sanitizar->limpiarEntero(-5);
+     echo $sanitizar->limpiarEntero(-5)."\n \n";
 
 echo "----- Fin función limpiarEntero() -------- \n\n";
 
