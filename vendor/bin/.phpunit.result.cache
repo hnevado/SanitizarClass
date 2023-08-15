@@ -1,1 +1,1 @@
-{"version":1,"defects":{"App\\Test\\SanitizarTest::testLimpiaString":7},"times":{"App\\Test\\SanitizarTest::testLimpiaString":0.003}}
+{"version":1,"defects":{"App\\Test\\SanitizarTest::testLimpiaString":7,"App\\Test\\SanitizarTest::testLimpiaString#0":8,"App\\Test\\SanitizarTest::testLimpiaString#2":7},"times":{"App\\Test\\SanitizarTest::testLimpiaString":0.003,"App\\Test\\SanitizarTest::testLimpiaString#0":0.002,"App\\Test\\SanitizarTest::testLimpiaString#1":0,"App\\Test\\SanitizarTest::testLimpiaString#2":0}}

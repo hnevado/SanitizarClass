@@ -6,14 +6,35 @@ use PHPUnit\Framework\TestCase;
 
 class SanitizarTest extends TestCase {
 
-    public function testLimpiaString() {
+
+
+    public static function posiblesStrings():array 
+    {
+
+
+        return [
+            ["\'Hola,qué tal?\'","'Hola,<p>qué tal?</p>'",true,true],
+            ["\'Hola,<p>qué tal?</p>\'","'Hola,<p>qué tal?</p>'",false,true],
+            ["'Hola,qué tal?'","'Hola,<p>qué tal?</p>'",true,false],
+        ];
+
+    }
+
+    /** 
+     * @dataProvider posiblesStrings
+     */
+
+    public function testLimpiaString($resultadoEsperado, $cadena, $strip_tags, $addslashes) {
 
 
         $sanitizar = new Sanitizar();
 
-        $this->assertEquals("\'Hola,qué tal?\'", $sanitizar->limpiarString("'Hola,<p>qué tal?</p>'"));
+        $this->assertEquals($resultadoEsperado, 
+                            $sanitizar->limpiarString($cadena,strip_tags:$strip_tags,addslashes:$addslashes));
 
     }
+
+    
 
 }
 ?>
