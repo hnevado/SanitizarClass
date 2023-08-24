@@ -77,6 +77,14 @@ class SanitizarTest extends TestCase {
 
      }
 
+     public function testComprobarPathTraversal()
+     {
+
+        $sanitizar = new Sanitizar();
+
+        $this->assertEquals(false,$sanitizar->pathTraversal("..\..\etc\passwd"));
+
+     }
 
 }
 ?>

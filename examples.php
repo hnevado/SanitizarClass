@@ -115,4 +115,28 @@ echo "\n \n ----- Fin función comprobarExtension() -------- \n\n";
 /** 
 * Fin pruebas comprobarExtension()
 **/
+
+
+/** 
+     * pathTraversal() evita el ataque que afecta al sistema de archivos
+     * OUTPUT:
+     * Fichero sanitizado
+**/
+
+echo "----- Función pathTraversal() -------- \n\n";
+
+$fichero='..\..\etc\passwd';
+echo "Fichero sin sanitizar: ".$fichero."\n";
+
+if (!$sanitizar->pathTraversal($fichero))
+ echo "El fichero NO existe o no tienes permisos. No se ha podido sanitizar";
+else 
+ echo "Fichero sanitizado: ".$sanitizar->pathTraversal($fichero);
+
+echo "\n \n ----- Fin función pathTraversal() -------- \n\n";
+
+/** 
+* Fin pruebas pathTraversal()
+**/
+
 ?>

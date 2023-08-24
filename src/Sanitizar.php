@@ -110,6 +110,37 @@ class Sanitizar {
     }
 
 
+    /** 
+     * pathTraversal() evita el ataque que afecta al sistema de archivos. 
+     * En este tipo de ataque, un usuario autenticado o no autenticado puede solicitar y ver o ejecutar archivos 
+     * a los que no debería poder acceder.
+     * Por defecto, ejecuta la función realpath() que devuelve la ruta absoluta canonicalizada
+     * pero solo si el archivo existe y si el script en ejecución tiene permisos
+     * Ejemplo: realpath("../../../etc/passwd") = /etc/passwd
+     * Esta función admite dos parámetros:
+     * $fichero: Fichero a sanitizar, ejemplo:  ../../../etc/passwd
+     * $basename: Ejecuta la función basename() que devuelve solo la parte del nombre de archivo basename("../../../etc/passwd") = passwd (false por defecto)
+     *  IMPORTANTE: Si el fichero al que llamas NO existe o no tienes permisos, al ejecutarse realpath te devolverá FALSE
+     */
+
+    public function pathTraversal(string $fichero, bool $basename = false) : string | bool
+    {
+
+      
+
+        if ($basename)
+        {
+            return basename(realpath($fichero));
+        }
+       
+        
+        return realpath($fichero);
+        
+         
+
+    }
+
+
 
   } //fin clase 
 
