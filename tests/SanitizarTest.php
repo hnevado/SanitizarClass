@@ -86,5 +86,31 @@ class SanitizarTest extends TestCase {
 
      }
 
+     public function testComprobarCsrfIguales()
+     {
+
+        $sanitizar = new Sanitizar();
+
+        $csrfToken1 = $sanitizar->csrf();
+        $csrfToken2 = $sanitizar->csrf();
+
+        // Verificar que la función devuelve el mismo token CSRF
+        $this->assertEquals($csrfToken1, $csrfToken2);
+
+     }
+
+     public function testComprobarStringCsrf()
+     {
+
+        //Compruebo que la función csrf me devuelve un string, que es lo que espero.
+        
+        $sanitizar = new Sanitizar();
+
+        $csrfToken = $sanitizar->csrf();
+
+        $this->assertIsString($csrfToken);
+
+     }
+
 }
 ?>
