@@ -1,4 +1,5 @@
 <?php 
+session_start();
 /**  
  * Ejecuta php examples.php en el terminal para ver los ejemplos o abre un navegador web 
 */
@@ -138,5 +139,19 @@ echo "\n \n ----- Fin función pathTraversal() -------- \n\n";
 /** 
 * Fin pruebas pathTraversal()
 **/
+
+/** 
+     * csrf() evita el ataque que afecta al sistema de archivos.
+     * Se crea un token CSRF único en forma de cadena hexadecimal y se asocia a la sesión del usuario
+     * Para luego poder comparar si el token que está en $_SESSION["csrf_token"] es igual al del formulario
+     * OUTPUT:
+     * Token csrf
+**/
+echo "---------- Función csrf() ---------- \n\n";
+
+$csrf=$sanitizar->csrf();
+
+echo "Valor de csrf ".$csrf."\n";
+echo "Valor de la sesión después de llamar a la función csrf:".$_SESSION["csrf_token"]."\n\n";
 
 ?>

@@ -140,6 +140,26 @@ class Sanitizar {
 
     }
 
+    /**
+     * csrf previene ataques en los que un atacante pueda engañar al usuario para que realice acciones no deseadas en una aplicación web 
+     * sin su conocimiento o consentimiento
+     * 
+     */
+    public function csrf($longitud = 32) : string
+    {
+
+        if (isset($_SESSION["csrf_token"]))
+         return $_SESSION["csrf_token"];
+
+
+        $csrf=bin2hex(random_bytes($longitud));
+
+        $_SESSION["csrf_token"] = $csrf;
+
+        return $csrf;
+
+    }
+
 
 
   } //fin clase 
