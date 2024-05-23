@@ -1,12 +1,13 @@
 # SanitizarClass
 Clase en PHP con métodos para sanitizar y evitar ataques en el sitio web.
 
-Esta clase se componen de seis métodos:
+Esta clase se componen de siete métodos:
 
  - limpiarString()
  - listaNegra()
  - limpiarEntero()
  - comprobarExtension()
+ - comprobarMimeContentType()
  - pathTraversal()
  - csrf()
 

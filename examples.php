@@ -119,6 +119,28 @@ echo "\n \n ----- Fin función comprobarExtension() -------- \n\n";
 
 
 /** 
+     * comprobarMimeContentType() comprueba el tipo de contenido MIME de un archivo
+     * OUTPUT:
+     * Extensión correcta para test_image.jpg
+     * Extensión incorrecta para test_image.jpg, se esperaba un pdf
+**/
+
+echo "----- Función comprobarMimeContentType() -------- \n\n";
+
+     if ($sanitizar->comprobarMimeContentType("test_image.jpg", "image/gif,image/jpeg"))
+      echo "Mime correcto para test_image.jpg \n";
+
+     if (!$sanitizar->comprobarMimeContentType("test_image.jpg", "application/zip,application/pdf"))
+      echo "Extensión incorrecta para test_image.jpg, se esperaba un zip o pdf";
+
+echo "\n \n ----- Fin función comprobarMimeContentType() -------- \n\n";
+
+/** 
+* Fin pruebas comprobarExtension()
+**/
+
+
+/** 
      * pathTraversal() evita el ataque que afecta al sistema de archivos
      * OUTPUT:
      * Fichero sanitizado

@@ -109,6 +109,21 @@ class Sanitizar {
 
     }
 
+    public function comprobarMimeContentType(string $url, string $allowed)
+    {
+
+        $allowed_extensions = explode(",",$allowed);
+        $contentType = mime_content_type($url);
+
+        if (!in_array($contentType, $allowed_extensions)) {
+            return false;
+        }
+
+        return true;
+
+
+    }
+
 
     /** 
      * pathTraversal() evita el ataque que afecta al sistema de archivos. 

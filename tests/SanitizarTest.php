@@ -77,6 +77,15 @@ class SanitizarTest extends TestCase {
 
      }
 
+     public function testComprobarMimeContentType()
+     {
+
+        $sanitizar = new Sanitizar();
+
+        $this->assertEquals(true,$sanitizar->comprobarMimeContentType("test_image.jpg", "image/gif,image/jpeg"));
+
+     }
+
      public function testComprobarPathTraversal()
      {
 
